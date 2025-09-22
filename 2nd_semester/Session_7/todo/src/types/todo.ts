@@ -2,7 +2,7 @@ export type TodoId = string;
 export type TodoTitle = string;
 export type TodoDescription = string;
 export type TodoCompleted = boolean;
-export type TodoTags = string[];
+export type TodoTags = unknown[];
 
 export interface Todo {
     id: TodoId;
