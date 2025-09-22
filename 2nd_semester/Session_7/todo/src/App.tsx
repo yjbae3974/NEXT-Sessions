@@ -42,13 +42,9 @@ function App() {
     return (
         <main className="container">
             <header style={{ textAlign: "center", marginBottom: "2rem" }}>
-                <h1>TypeScript Todo App</h1>
-                <p>
-                    TypeScript의 모든 문법을 실습해보는 Todo 애플리케이션입니다.
-                </p>
+                <h1>Todo App with TS</h1>
             </header>
 
-            {/* 에러 표시 */}
             {error && (
                 <div
                     className="card"
@@ -62,12 +58,9 @@ function App() {
             )}
 
             <div className="grid">
-                {/* Todo 추가 폼 */}
                 <div>
                     <TodoForm onSubmit={handleAddTodo} loading={loading} />
                 </div>
-
-                {/* 필터 */}
                 <div>
                     <TodoFilter
                         currentFilter={filter}
@@ -77,7 +70,6 @@ function App() {
                 </div>
             </div>
 
-            {/* Todo 목록 */}
             <div style={{ marginTop: "2rem" }}>
                 <TodoList
                     todos={filteredTodos}

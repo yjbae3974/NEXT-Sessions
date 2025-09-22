@@ -6,6 +6,9 @@
         "lib": ["ES2022", "DOM", "DOM.Iterable"],
         "module": "ESNext",
         "skipLibCheck": true,
+        
+        /* js 파일 허용. 처음 프로젝트를 js로 만들고, 점차 ts로 전환해나가는 과정에서 필요합니다. */
+        "allowJs": true,
 
         /* Bundler mode */
         "moduleResolution": "bundler",
