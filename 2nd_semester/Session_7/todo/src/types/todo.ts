@@ -14,15 +14,25 @@ export interface Todo {
     updatedAt: string;
 }
 
-
 export type TodoStatus = "all" | "active" | "completed";
 export type TodoFilter = "all" | "high" | "medium" | "low";
-
 
 export type TodoList = Todo[];
 export type TodoFormData = Omit<Todo, "id" | "createdAt" | "updatedAt">;
 
-
 export type TodoHandler = (todo: Todo) => void;
 export type TodoIdHandler = (id: TodoId) => void;
 export type TodoFilterHandler = (filter: TodoStatus) => void;
+
+// API 응답 타입
+export type ApiResponse<T> = {
+    data: T;
+    status: number;
+    message: string;
+};
+
+// 에러 타입
+export type ApiError = {
+    error: string;
+    status: number;
+};
