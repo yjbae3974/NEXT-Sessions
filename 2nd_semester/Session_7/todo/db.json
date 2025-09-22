@@ -1,59 +1,43 @@
 {
-  "todos": [
-    {
-      "id": "1",
-      "title": "TypeScript 학습하기",
-      "description": "기본 타입과 문법 익히기",
-      "completed": false,
-      "priority": 5,
-      "tags": [
-        1,
-        "typescript",
-        true
-      ],
-      "createdAt": "2024-01-15T10:00:00Z",
-      "updatedAt": "2024-01-15T10:00:00Z"
-    },
-    {
-      "id": "2",
-      "title": "React 프로젝트 만들기",
-      "description": "Todo 앱으로 실습하기",
-      "completed": true,
-      "priority": 4,
-      "tags": [
-        2,
-        "react",
-        "practice",
-        false
-      ],
-      "createdAt": "2024-01-16T09:00:00Z",
-      "updatedAt": "2024-01-16T14:30:00Z"
-    },
-    {
-      "id": "3",
-      "title": "코딩 테스트 준비",
-      "description": "알고리즘 문제 풀기",
-      "completed": false,
-      "priority": 3,
-      "tags": [
-        3,
-        "algorithm",
-        "interview"
-      ],
-      "createdAt": "2024-01-17T11:00:00Z",
-      "updatedAt": "2024-01-17T11:00:00Z"
-    },
-    {
-      "id": "180b",
-      "title": "testsdfdsfs",
-      "description": "test",
-      "completed": true,
-      "tags": [
-        4,
-        "urgent"
-      ],
-      "createdAt": "2025-09-21T14:01:34.521Z",
-      "updatedAt": "2025-09-21T14:01:48.780Z"
-    }
-  ]
+    "todos": [
+        {
+            "id": "1",
+            "title": "TypeScript 학습하기",
+            "description": "기본 타입과 문법 익히기",
+            "completed": false,
+            "priority": 5,
+            "tags": [1, "typescript", true],
+            "createdAt": "2024-01-15T10:00:00Z",
+            "updatedAt": "2024-01-15T10:00:00Z"
+        },
+        {
+            "id": "2",
+            "title": "React 프로젝트 만들기",
+            "description": "Todo 앱으로 실습하기",
+            "completed": true,
+            "priority": 4,
+            "tags": [2, "react", "practice", false],
+            "createdAt": "2024-01-16T09:00:00Z",
+            "updatedAt": "2024-01-16T14:30:00Z"
+        },
+        {
+            "id": "3",
+            "title": "코딩 테스트 준비",
+            "description": "알고리즘 문제 풀기",
+            "completed": false,
+            "priority": 3,
+            "tags": [3, "algorithm", "interview"],
+            "createdAt": "2024-01-17T11:00:00Z",
+            "updatedAt": "2024-01-17T11:00:00Z"
+        },
+        {
+            "id": "180b",
+            "title": "testsdfdsfs",
+            "description": "test",
+            "completed": true,
+            "tags": [4, "urgent"],
+            "createdAt": "2025-09-21T14:01:34.521Z",
+            "updatedAt": "2025-09-21T14:01:48.780Z"
+        }
+    ]
 }

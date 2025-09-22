@@ -4,7 +4,7 @@ export type TodoDescription = string;
 export type TodoCompleted = boolean;
 export type TodoTags = unknown[];
 
-export interface Todo {
+export type Todo =  {
     id: TodoId;
     title: TodoTitle;
     description?: TodoDescription; // 옵셔널 프로퍼티

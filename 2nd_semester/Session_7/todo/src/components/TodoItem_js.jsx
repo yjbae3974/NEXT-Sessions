@@ -1,51 +1,29 @@
 import { useState } from "react";
-import type { Todo, TodoHandler, TodoIdHandler } from "@types/todo";
 
-// 컴포넌트 Props 인터페이스
-interface TodoItemProps {
-    todo: Todo;
-    onToggle: TodoIdHandler;
-    onDelete: TodoIdHandler;
-    onUpdate: (
-        id: string,
-        updates: Partial<Omit<Todo, "id" | "createdAt" | "updatedAt">>
-    ) => void;
-}
-
-// 우선순위 타입 (유니온 타입)
-type PriorityLevel = "low" | "medium" | "high";
-
-// 우선순위별 스타일 매핑
-const priorityStyles: Record<PriorityLevel, string> = {
-    low: "secondary",
-    medium: "primary",
-    high: "contrast",
-} as const;
-
-export const TodoItem = ({
-    todo,
-    onToggle,
-    onDelete,
-    onUpdate,
-}: TodoItemProps) => {
-    const [isEditing, setIsEditing] = useState<boolean>(false);
-    const [editTitle, setEditTitle] = useState<string>(todo.title);
-    const [editDescription, setEditDescription] = useState<string>(
+export const TodoItem = ({ todo, onToggle, onDelete, onUpdate }) => {
+    const [isEditing, setIsEditing] = useState(false);
+    const [editTitle, setEditTitle] = useState(todo.title);
+    const [editDescription, setEditDescription] = useState(
         todo.description || ""
     );
 
-    // 우선순위 계산 함수
-    const getPriorityLevel = (tags: string[]): PriorityLevel => {
+    const getPriorityLevel = (tags) => {
         if (tags.includes("urgent") || tags.includes("high")) return "high";
         if (tags.includes("medium") || tags.includes("normal")) return "medium";
         return "low";
+    };
+
+    const priorityStyles = {
+        low: "secondary",
+        medium: "primary",
+        high: "contrast",
     };
 
     const priority = getPriorityLevel(todo.tags);
     const priorityStyle = priorityStyles[priority];
 
     // 편집 모드 토글
-    const handleEditToggle = (): void => {
+    const handleEditToggle = () => {
         if (isEditing) {
             // 편집 완료
             onUpdate(todo.id, {
@@ -61,14 +39,14 @@ export const TodoItem = ({
     };
 
     // 편집 취소
-    const handleEditCancel = (): void => {
+    const handleEditCancel = () => {
         setEditTitle(todo.title);
         setEditDescription(todo.description || "");
         setIsEditing(false);
     };
 
     // 날짜 포맷팅 함수
-    const formatDate = (dateString: string): string => {
+    const formatDate = (dateString) => {
         const date = new Date(dateString);
         return date.toLocaleDateString("ko-KR", {
             year: "numeric",
@@ -165,8 +143,7 @@ export const TodoItem = ({
                 </div>
             </div>
 
-            {/* 태그 표시 */}
-            {todo.tags.length > 0 && (
+            {todo.tags && todo.tags.length > 0 && (
                 <div style={{ marginTop: "0.5rem" }}>
                     {todo.tags.map((tag, index) => (
                         <span
@@ -174,9 +151,7 @@ export const TodoItem = ({
                             className={`badge ${priorityStyle}`}
                             style={{ marginRight: "0.25rem" }}
                         >
-                            {typeof tag === "string" && tag}
-                            {typeof tag === "number" && tag}
-                            {typeof tag === "boolean" && tag.toString()}
+                            {tag}
                         </span>
                     ))}
                 </div>

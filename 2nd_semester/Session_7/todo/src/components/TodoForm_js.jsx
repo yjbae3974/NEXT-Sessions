@@ -1,28 +1,19 @@
-import { useState, type FormEvent } from "react";
-import type { TodoFormData } from "@types/todo";
+import { useState } from "react";
 
-// 컴포넌트 Props 타입 정의
-interface TodoFormProps {
-    onSubmit: (todo: TodoFormData) => void;
-    loading?: boolean; // 옵셔널 프로퍼티
-}
-
-export const TodoForm = ({ onSubmit, loading = false }: TodoFormProps) => {
-    // 기본 타입들 활용
+export const TodoForm = ({ onSubmit, loading = false }) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
-    const [tags, setTags] = useState("");
+    const [tags, setTags] = useState([]);
 
-    // 타입 단언을 활용한 폼 제출 핸들러
-    const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+    // 폼 제출 핸들러 (타입 지정 없이)
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         if (!title.trim()) return;
 
-        // 타입 단언 (as) 사용
-        const todoData: TodoFormData = {
+        const todoData = {
             title: title.trim(),
-            description: description.trim() || undefined, // 옵셔널 프로퍼티
+            description: description.trim(),
             completed: false,
             tags: tags
                 .split(",")
@@ -35,7 +26,7 @@ export const TodoForm = ({ onSubmit, loading = false }: TodoFormProps) => {
         // 폼 초기화
         setTitle("");
         setDescription("");
-        setTags("");
+        setTags([]);
     };
 
     return (

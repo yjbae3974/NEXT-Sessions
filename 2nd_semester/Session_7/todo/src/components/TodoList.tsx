@@ -1,5 +1,5 @@
-import { TodoItem } from "./TodoItem";
-import type { Todo, TodoIdHandler } from "@types";
+import { TodoItem } from "./TodoItem_js";
+import type { Todo, TodoIdHandler } from "@types/todo";
 
 // 컴포넌트 Props 인터페이스
 interface TodoListProps {
